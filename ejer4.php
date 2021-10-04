@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Ejercicio2</title>
+    <title>Ejercicio4</title>
 </head>
 
 <body>
@@ -11,7 +11,14 @@
     {
         private $str ="manzana pera limón sandía melón";
         public function asociativo(){
-            echo $this->str[0];
+            $array = explode(" ",$this->str);
+            $asociativo = [];
+            for($i =0; $i<count($array);$i++){
+                $asociativo[$array[$i]] = strlen($array[$i]);
+            }
+            foreach($asociativo as $key => $value){
+                echo $key . " : " . $value . "<br>";
+            }            
         }
     }
     $obj = new ejer4();
