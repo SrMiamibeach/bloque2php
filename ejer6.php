@@ -32,7 +32,7 @@
 <body>
     <form method="POST">
         <label>Introduce un mes y te diremos cuantos dias tiene</label>
-        <p>Introduce un nombre:<input type="text" name="nombre" htmlentities/></p>
+        <p>Introduce un nombre:<input type="text" name="nombre"/></p>
         <p>Introduce un mes:<input type="text" name="mes" /></p>
         <input type="submit" value="Enviar" name="submit" />
     </form>
@@ -87,9 +87,9 @@
     }
 
     if(isset($_POST["nombre"]) && isset($_POST["mes"])) {
-            $mes = strtolower($_POST["mes"]);
+            $mes = htmlentities(strtolower($_POST["mes"]));
             if(array_key_exists($mes, $cumples)) {
-                $nombre = $_POST["nombre"];
+                $nombre = htmlentities($_POST["nombre"]);
                 $contador =anadirNombre($nombre, $mes);
                 mostrar();
                 echo 'Numero de personas:'.$contador;
